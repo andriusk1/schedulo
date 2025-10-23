@@ -1,0 +1,2 @@
+# schedulo
+Ülikooli veebiprojekt

@@ -2,13 +2,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f8ff;
+  background-color: #f0f8ff; 
   color: #333;
 }
 
 header {
-  background-color: #ffffff;
-  color: #007acc; 
+  background-color: #ffffff; 
+  color: #007acc;           
   text-align: center;
   padding: 30px 10px;
   border-bottom: 2px solid #007acc;
@@ -16,7 +16,7 @@ header {
 
 nav {
   background-color: #007acc; 
-  text-align: center; 
+  text-align: center;
 }
 
 .nav-menu {
@@ -46,6 +46,7 @@ nav {
   color: #007acc;
 }
 
+/* Выпадающее подменю */
 .dropdown-content {
   display: none;
   position: absolute;

@@ -2,13 +2,13 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f0f8ff; /* светло-голубой фон */
+  background-color: #f0f8ff; 
   color: #333;
 }
 
 header {
-  background-color: #ffffff; /* белый фон */
-  color: #007acc; /* ярко-голубой текст */
+  background-color: #ffffff; 
+  color: #007acc; 
   text-align: center;
   padding: 30px 10px;
   border-bottom: 2px solid #007acc;
@@ -52,3 +52,4 @@ main {
 main h2 {
   color: #007acc;
 }
+

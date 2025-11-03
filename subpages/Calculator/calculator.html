@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="calculator.js"></script>
+  <script src="calculator.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="calculator.css">
   <title>SCHEDULO</title>
   <h1>Siin on meie kalkulaator.</h1>
 </head>
 <body>
-  <div class="button" onclick="showPopup()">CLICK HERE TO OPEN CALCULATOR</div>
+  <!--<div class="button" onclick="openPopup()">CLICK HERE TO OPEN CALCULATOR</div>-->
+  <button onclick="openCalculatorWindow()">Open Calculator</button><br><br>
 
-<nav>
-  <ul>
-    <li>
-      <a href="/../../index.html">Home</a>
-    </li>
-  </ul>
-</nav>
+  <button onclick="document.location='/../../index.html'">BACK</button>
+</body>

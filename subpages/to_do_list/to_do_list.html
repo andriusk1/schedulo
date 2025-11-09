@@ -1,15 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>SCHEDULO</title>
-  <h1>Siia tuleb to-do list.</h1>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCHEDULO – To-do list</title>
+
+  <!-- global styles -->
+  <link rel="stylesheet" href="../../style.css">
+  <!-- page styles -->
+  <link rel="stylesheet" href="to_do_list.css">
 </head>
 <body>
 
-<nav>
-  <ul>
-    <li>
-      <a href="index.html">Home</a>
-    </li>
-  </ul>
-</nav>
+  <header>
+    <h1>To-do list</h1>
+    <p>Keep track of tasks for any day.</p>
+  </header>
+
+  <nav>
+    <ul class="nav-menu">
+      <li><a href="../../index.html" class="nav-link"><span>Home</span></a></li>
+      <li><a href="../to_do_list/to_do_list.html" class="nav-link"><span>To-do list</span></a></li>
+      <li><a href="../study/study.html" class="nav-link"><span>Õppimine</span></a></li>
+      <li><a href="../Calculator/calculator.html" class="nav-link"><span>Calculator</span></a></li>
+      <li><a href="../about_us/about_us.html" class="nav-link"><span>About us</span></a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="todo-wrapper">
+      <!-- date selector -->
+      <div class="todo-date-row">
+        <label for="todo-date">Tasks for:</label>
+        <input type="date" id="todo-date">
+        <span id="human-date" class="human-date"></span>
+      </div>
+
+      <div class="todo-input-row">
+        <input
+          type="text"
+          id="todo-input"
+          placeholder="Add a new task for this day..."
+          autocomplete="off"
+        />
+        <button id="add-btn">Add</button>
+      </div>
+
+      <ul id="todo-list">
+        <!-- tasks injected here -->
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 SCHEDULO. All rights reserved.
+  </footer>
+
+  <script src="to_do_list.js"></script>
+</body>
+</html>

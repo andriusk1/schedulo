@@ -2,9 +2,11 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to bottom right, #f0f8ff, #d8ecff); /* плавный голубой градиент */
+  background: linear-gradient(to bottom right, #f0f8ff, #d8ecff);
   color: #333;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -45,11 +47,13 @@ nav {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-menu li {
-  margin: 0 15px;
+  margin: 5px 10px;
 }
 
 .nav-link {
@@ -91,6 +95,7 @@ nav {
 }
 
 main {
+  flex: 1;
   padding: 40px 20px;
   text-align: center;
   max-width: 900px;
@@ -116,13 +121,18 @@ main p {
   margin-top: 40px;
 }
 
+.card-link {
+  text-decoration: none;
+}
+
 .card {
   background-color: #ffffff;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 25px;
-  width: 230px;
+  width: 250px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
@@ -147,4 +157,33 @@ footer {
   padding: 15px;
   margin-top: 60px;
   font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  header p {
+    font-size: 1em;
+  }
+
+  .nav-link {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+
+  main h2 {
+    font-size: 1.5em;
+  }
 }

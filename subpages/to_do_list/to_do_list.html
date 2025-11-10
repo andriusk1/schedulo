@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCHEDULO – To-do list</title>
 
-  <!-- global styles -->
   <link rel="stylesheet" href="../../style.css">
-  <!-- page styles -->
   <link rel="stylesheet" href="to_do_list.css">
 </head>
 <body>
@@ -29,7 +27,6 @@
 
   <main>
     <div class="todo-wrapper">
-      <!-- date selector -->
       <div class="todo-date-row">
         <label for="todo-date">Tasks for:</label>
         <input type="date" id="todo-date">
@@ -41,13 +38,11 @@
           type="text"
           id="todo-input"
           placeholder="Add a new task for this day..."
-          autocomplete="off"
-        />
+          autocomplete="off">
         <button id="add-btn">Add</button>
       </div>
 
       <ul id="todo-list">
-        <!-- tasks injected here -->
       </ul>
     </div>
   </main>

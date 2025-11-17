@@ -7,6 +7,43 @@ let date = new Date(),
 currYear = date.getFullYear(),
 currMonth = date.getMonth();
 
+const eventTitleInput   = document.getElementById("event-title");
+const addEventBtn       = document.getElementById("add-event-btn");
+const eventListEl       = document.querySelector(".event-list");
+const eventDateLabelEl  = document.querySelector(".event-date-label");
+
+let selectedDate = null;
+const events = {};
+
+function formatDateKey(year, monthIndex, day) {
+    const y = year;
+    const m = String(monthIndex + 1).padStart(2, "0"); // monthIndex is 0–11
+    const d = String(day).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+}
+
+function renderEventsForSelectedDate() {
+    if (!eventListEl || !eventDateLabelEl) return;
+
+    if (!selectedDate) {
+        eventDateLabelEl.textContent = "No day selected";
+        eventListEl.innerHTML = "";
+        return;
+    }
+
+    eventDateLabelEl.textContent = `Events on ${selectedDate}`;
+    const list = events[selectedDate] || [];
+
+    if (!list.length) {
+        eventListEl.innerHTML = "<li>No events for this day.</li>";
+        return;
+    }
+
+    eventListEl.innerHTML = list
+        .map((title, i) => `<li>${i + 1}. ${title}</li>`)
+        .join("");
+}
+
 // storing full name of all months in array
 const months = ["January", "February", "March", "April", "May", "June", "July",
               "August", "September", "October", "November", "December"];

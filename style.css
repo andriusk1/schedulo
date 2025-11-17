@@ -131,7 +131,6 @@
             text-decoration: none;
         }
 
-        /* ----------- КАРТОЧКИ ----------- */
         .card {
             background-color: #ffffff;
             background-size: cover;
@@ -168,7 +167,6 @@
             box-shadow: 0 8px 18px rgba(0, 122, 204, 0.3);
         }
 
-        /* ----------- ФОНЫ ДЛЯ КАРТОЧЕК ----------- */
         .card-todo {
             background-image: url("images/todo.png");
         }
@@ -286,3 +284,4 @@
 
 </body>
 </html>
+

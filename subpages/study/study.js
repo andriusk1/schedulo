@@ -6,21 +6,30 @@ let noteData = JSON.parse(localStorage.getItem("noteData")) || [];
 function CreateNewNote(e) {
   let div = document.createElement("div");
   div.classList.add("note-row");
+  let content = e && e.trim() !== "" ? e : "Click to start typing...";
   let newHTML =
-    `<div contenteditable="true" class="note-editor" id="note-editor" onmouseup="getSelectedText()">` +
-    e +
-    `</div>
+    `<div contenteditable="true"
+    class="note-editor"
+    id="note-editor"
+    onmouseup="getSelectedText()"
+    onfocus="clearPlaceholder(this)"
+    onblur="restorePlaceholder(this)">
+    ${content}
+    </div>
         <div class="note-controls">
         <div onclick="getSelected('capitalize')" class="capitalize">Aa</div>
         <div onclick="getSelected('bold')" class="bold">B</div>
         <div onclick="getSelected('italic')" class="italic">I</div>
         <div onclick="getSelected('underline')" class="underline">U</div>
         <div onclick="getSelected('lineThrough')" class="lineThrough">ab</div>
-        <hr />
-        <img src="images/delete.png" onclick="DeleteNote(this)" />
-        </div>`;
+        <div onclick="DeleteNote(this)" class="delete-note">DELETE NOTE</div>
+    </div>`;
   div.innerHTML = newHTML;
-  Container.appendChild(div);
+  if (Container.firstChild) {
+    Container.insertBefore(div, Container.firstChild);
+  } else {
+    Container.appendChild(div);
+  }
 
   const noteEditor = document.querySelectorAll(".note-editor");
   noteEditor.forEach((el) =>
@@ -43,22 +52,18 @@ document.addEventListener('keydown', e => {
 
 function SaveNoteData() {
   noteData = [];
-  localStorage.setItem("noteData", []);
   const noteEditor = document.querySelectorAll(".note-editor");
+
   noteEditor.forEach((el) => {
-    if (el.innerHTML !== "") {
-      let HTML = { value: el.innerHTML };
-      noteData.push(HTML);
+    const html = el.innerHTML.trim();
+
+    // don’t save placeholder-only notes
+    if (html && html !== "Click to start typing...") {
+      noteData.push({ value: html });
     }
   });
 
   localStorage.setItem("noteData", JSON.stringify(noteData));
-}
-
-function readData() {
-  noteData.forEach((element) => {
-    CreateNewNote(element.value + "<br />");
-  });
 }
 
 function getSelectedText() {
@@ -84,20 +89,6 @@ function DeleteNote(e) {
   }
 }
 
-// Save all notes into localStorage
-function SaveNoteData() {
-  noteData = [];
-  const noteEditor = document.querySelectorAll(".note-editor");
-
-  noteEditor.forEach((el) => {
-    const html = el.innerHTML.trim();
-    if (html !== "") {
-      noteData.push({ value: html });
-    }
-  });
-
-  localStorage.setItem("noteData", JSON.stringify(noteData));
-}
 
 // Re-load notes from localStorage
 function readData() {
@@ -135,4 +126,15 @@ function DeleteAllNotes() {
 
   // Reset in-memory array
   noteData = [];
+}
+function clearPlaceholder(el) {
+  if (el.innerHTML.trim() === "Click to start typing...") {
+    el.innerHTML = "";
+  }
+}
+
+function restorePlaceholder(el) {
+  if (el.innerHTML.trim() === "") {
+    el.innerHTML = "Click to start typing...";
+  }
 }

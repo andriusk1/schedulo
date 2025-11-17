@@ -7,7 +7,7 @@
 }
 
 body {
-  background: #78c1f3;
+  background-color: #007acc;
   padding: 25px;
 }
 
@@ -15,14 +15,28 @@ body {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  
+}
+
+button {
+    background-color: rgb(57, 158, 240);
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    display: inline-block;
+    padding: 15px 32px;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
+    transition: all 0.2s ease;
 }
 
 .addNote {
-  height: 150px;
+  height: 50px;
   background: #ffffff;
   cursor: pointer;
   margin: 10px;
-  padding: 50px;
 }
 
 .note-row {
@@ -31,8 +45,9 @@ body {
 }
 
 .note-editor {
-  height: 250px;
-  width: 250px;
+  min-height: 200px;
+  height: auto;
+  width: 100%;
   resize: none;
   border: none;
   outline: none;
@@ -47,20 +62,20 @@ body {
 
 .note-controls {
   height: 50px;
-  width: 250px;
+  width: flex;
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid;
+  border-top: 2px solid;
 }
 
 .note-controls div {
-  width: 30px;
+  width: 1000px;
   height: 30px;
   cursor: pointer;
   text-align: center;
   background: #eeeeee;
-  border-radius: 5px;
+  border-radius: 1000px;
   line-height: 30px;
 }
 

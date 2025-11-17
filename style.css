@@ -1,189 +1,60 @@
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom right, #f0f8ff, #d8ecff);
-  color: #333;
-  min-height: 100vh;
+
+.card {
+  background-color: #ffffff;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  width: 250px;
+  height: 180px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-}
-
-header {
-  background-color: #ffffff;
-  color: #007acc;
-  text-align: center;
-  padding: 40px 15px;
-  border-bottom: 3px solid #007acc;
-  box-shadow: 0 2px 10px rgba(0, 122, 204, 0.2);
-  transition: background 0.5s ease;
-}
-
-header:hover {
-  background-color: #e6f2ff;
-}
-
-header h1 {
-  font-size: 2.4em;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-header p {
-  margin-top: 10px;
-  font-size: 1.1em;
-}
-
-nav {
-  background-color: #007acc;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.nav-menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.nav-menu li {
-  margin: 5px 10px;
-}
-
-.nav-link {
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  padding: 12px 20px;
-  border-radius: 10px;
-  transition: all 0.3s ease;
+  justify-content: flex-end;
   position: relative;
   overflow: hidden;
 }
 
-.nav-link::before {
+.card::before {
   content: "";
   position: absolute;
-  width: 0%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #e6f2ff;
-  transition: width 0.3s ease;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  transition: background 0.3s ease;
   z-index: 0;
-  border-radius: 10px;
 }
 
-.nav-link:hover::before {
-  width: 100%;
+.card:hover::before {
+  background: rgba(0, 0, 0, 0.25);
 }
 
-.nav-link:hover {
-  color: #007acc;
-}
-
-.nav-link span {
+.card h3,
+.card p {
   position: relative;
   z-index: 1;
+  color: #fff;
 }
 
-main {
-  flex: 1;
-  padding: 40px 20px;
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+.card-todo {
+  background-image: url("images/todo.jpg");
 }
 
-main h2 {
-  color: #007acc;
-  font-size: 1.8em;
+.card-study {
+  background-image: url("images/study.jpg");
 }
 
-main p {
-  font-size: 1.1em;
-  line-height: 1.6em;
-  margin-top: 15px;
+.card-calculator {
+  background-image: url("images/calculator.jpg");
 }
 
-.features {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 25px;
-  margin-top: 40px;
+.card-calendar {
+  background-image: url("images/calendar.jpg");
 }
 
-.card-link {
-  text-decoration: none;
-}
-
-.card {
-  background-color: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 25px;
-  width: 250px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 18px rgba(0, 122, 204, 0.3);
-}
-
-.card h3 {
-  color: #007acc;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 0.95em;
-  color: #444;
-}
-
-footer {
-  background-color: #007acc;
-  color: white;
-  text-align: center;
-  padding: 15px;
-  margin-top: 60px;
-  font-size: 0.9em;
-}
-
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.8em;
-  }
-
-  .nav-menu {
-    flex-direction: column;
-  }
-
-  .card {
-    width: 90%;
-  }
-}
-
-@media (max-width: 480px) {
-  header p {
-    font-size: 1em;
-  }
-
-  .nav-link {
-    padding: 10px 15px;
-    font-size: 0.9em;
-  }
-
-  main h2 {
-    font-size: 1.5em;
-  }
+.card-about {
+  background-image: url("images/team.jpg");
 }

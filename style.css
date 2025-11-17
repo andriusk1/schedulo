@@ -131,14 +131,36 @@
             text-decoration: none;
         }
 
+        /* ----------- КАРТОЧКИ ----------- */
         .card {
             background-color: #ffffff;
+            background-size: cover;
+            background-position: center;
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             width: 250px;
+            height: 180px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            color: white;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 0;
+        }
+
+        .card h3, .card p {
+            position: relative;
+            z-index: 1;
         }
 
         .card:hover {
@@ -146,14 +168,25 @@
             box-shadow: 0 8px 18px rgba(0, 122, 204, 0.3);
         }
 
-        .card h3 {
-            color: #007acc;
-            margin-bottom: 10px;
+        /* ----------- ФОНЫ ДЛЯ КАРТОЧЕК ----------- */
+        .card-todo {
+            background-image: url("images/todo.png");
         }
 
-        .card p {
-            font-size: 0.95em;
-            color: #444;
+        .card-study {
+            background-image: url("images/study.png");
+        }
+
+        .card-calculator {
+            background-image: url("images/calculator.png");
+        }
+
+        .card-calendar {
+            background-image: url("images/calendar.png");
+        }
+
+        .card-team {
+            background-image: url("images/team.png");
         }
 
         footer {
@@ -195,6 +228,61 @@
         }
     </style>
 </head>
+
 <body>
+
+<header>
+    <h1>Welcome to SCHEDULO!</h1>
+    <p>Your personal assistant for planning, learning, and organizing tasks.</p>
+</header>
+
+<main>
+    <h2>Start here</h2>
+    <p>Select one of the features below:</p>
+
+    <div class="features">
+
+        <a class="card-link" href="#">
+            <div class="card card-todo">
+                <h3>To-Do List</h3>
+                <p>Organize your tasks</p>
+            </div>
+        </a>
+
+        <a class="card-link" href="#">
+            <div class="card card-study">
+                <h3>Study</h3>
+                <p>Track study progress</p>
+            </div>
+        </a>
+
+        <a class="card-link" href="#">
+            <div class="card card-calculator">
+                <h3>Calculator</h3>
+                <p>Useful tools</p>
+            </div>
+        </a>
+
+        <a class="card-link" href="#">
+            <div class="card card-calendar">
+                <h3>Calendar</h3>
+                <p>Plan your schedule</p>
+            </div>
+        </a>
+
+        <a class="card-link" href="#">
+            <div class="card card-team">
+                <h3>About Us</h3>
+                <p>Meet the team</p>
+            </div>
+        </a>
+
+    </div>
+</main>
+
+<footer>
+    © 2025 SCHEDULO. All rights reserved.
+</footer>
+
 </body>
 </html>

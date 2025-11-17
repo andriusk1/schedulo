@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCHEDULO</title>
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    function openPopup(url) {
+      window.open(
+        url,
+        "popupWindow",
+        "width=420,height=600,resizable=yes,scrollbars=no,status=no"
+      );
+    }
+  </script>
+
 </head>
 <body>
 
@@ -19,8 +30,11 @@
       <li><a href="subpages/to_do_list/to_do_list.html" class="nav-link"><span>To-do list</span></a></li>
       <li><a href="subpages/study/study.html" class="nav-link"><span>Õppimine</span></a></li>
 
-      <!-- Calculator opens in a new tab -->
-      <li><a href="subpages/Calculator/popup_calculator.html" target="_blank" class="nav-link"><span>Calculator</span></a></li>
+      <!-- Calculator popup -->
+      <li><a href="#" onclick="openPopup('subpages/Calculator/popup_calculator.html')" class="nav-link"><span>Calculator</span></a></li>
+
+      <!-- Calendar popup -->
+      <li><a href="#" onclick="openPopup('subpages/calendar/calendar.html')" class="nav-link"><span>Calendar</span></a></li>
 
       <li><a href="subpages/about_us/about_us.html" class="nav-link"><span>About us</span></a></li>
     </ul>
@@ -45,16 +59,16 @@
         </div>
       </a>
 
-      <!-- Calculator card opens in new tab -->
-      <a href="subpages/Calculator/popup_calculator.html" target="_blank" class="card-link">
+      <!-- Calculator popup -->
+      <a href="#" onclick="openPopup('subpages/Calculator/popup_calculator.html')" class="card-link">
         <div class="card card-calculator">
           <h3>Smart tools</h3>
           <p>Use the calculator to boost productivity.</p>
         </div>
       </a>
 
-      <!-- Calendar card opens in new tab -->
-      <a href="subpages/calendar/calendar.html" target="_blank" class="card-link">
+      <!-- Calendar popup -->
+      <a href="#" onclick="openPopup('subpages/calendar/calendar.html')" class="card-link">
         <div class="card card-calendar">
           <h3>Stay on schedule</h3>
           <p>View and manage your upcoming events.</p>

@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="et">
-<head>
-  <meta charset="UTF-8">
-  <title>SCHEDULO</title>
-</head>
-<body>
-
-  <h1>See leht on mõeldud õppimiseks.</h1>
-
-  <nav>
-    <ul>
-      <li><a href="../../index.html">Home</a></li>
-    </ul>
-  </nav>
-
-</body>
+<html>
+  <head>
+    <title>Notes</title>
+    <link rel="stylesheet" href="study.css" />
+    <script defer src="study.js"></script>
+  </head>
+  <body>
+    <h1>Notes</h1>
+    <button onclick="AddNote()">Add Note</button>
+    <button onclick="SaveNoteData()">Save All Notes</button>
+    <button onclick="DeleteAllNotes()">Delete All Notes</button>
+    <div id="container"></div>
+  </body>
 </html>

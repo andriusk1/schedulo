@@ -90,7 +90,7 @@ function addTaskToDom(text, completed = false, save = true) {
 
   const del = document.createElement("button");
   del.className = "delete-btn";
-  del.textContent = "Kustuta";
+  del.textContent = "Delete";
   del.addEventListener("click", () => {
     li.remove();
     saveCurrentDate();

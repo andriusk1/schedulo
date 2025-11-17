@@ -1,0 +1,122 @@
+/* wrapper around all cards */
+.about-page {
+  max-width: 900px;
+  margin: 30px auto 40px;
+  padding: 0 20px;
+}
+
+/* generic card style */
+.about-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px 22px;
+  margin-bottom: 18px;
+  border: 1px solid #d8ecff;
+  box-shadow: 0 4px 12px rgba(0, 122, 204, 0.12);
+}
+
+.about-card h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #007acc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-card p {
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+/* bullet list inside card */
+.bullet-list {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.bullet-list li {
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+/* team layout */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #f0f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #007acc;
+}
+
+.name {
+  font-size: 0.98rem;
+  color: #333;
+}
+
+/* github card */
+
+.github-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.github-text h2 {
+  margin-bottom: 6px;
+}
+
+.github-button {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #007acc;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.github-button:hover {
+  background: #005d99;
+}
+
+/* small screens */
+
+@media (max-width: 650px) {
+  .github-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-page {
+    padding: 0 14px;
+  }
+}

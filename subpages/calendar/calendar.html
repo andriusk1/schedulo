@@ -17,6 +17,7 @@
         <div class="icons">
           <span id="prev" class="material-symbols-rounded">chevron_left</span>
           <span id="next" class="material-symbols-rounded">chevron_right</span>
+          <button id="add-event-btn" type="button">Add Event</button>
         </div>
       </header>
       <div class="calendar">
@@ -32,6 +33,16 @@
         <ul class="days"></ul>
       </div>
     </div>
-    
+  <div class="event-panel">
+    <h3 class="event-date-label">No day selected</h3>
+
+    <div class="event-form">
+      <input id="event-title" placeholder="Event title" />
+      <textarea id="event-description" placeholder="Event description"></textarea>
+    </div>
+
+
+    <ul class="event-list"></ul>
+  </div>
   </body>
 </html>

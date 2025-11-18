@@ -90,3 +90,113 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         renderCalendar(); // calling renderCalendar function
     });
 });
+
+// =========================
+// EVENT SYSTEM ADD-ON
+// =========================
+
+// unique id counter for events
+let eventIdCounter = 0;
+
+// override the old renderer to support description + delete
+function renderEventsForSelectedDate() {
+    if (!eventListEl || !eventDateLabelEl) return;
+
+    if (!selectedDate) {
+        eventDateLabelEl.textContent = "No day selected";
+        eventListEl.innerHTML = "";
+        return;
+    }
+
+    eventDateLabelEl.textContent = `Events on ${selectedDate}`;
+    const list = events[selectedDate] || [];
+
+    if (!list.length) {
+        eventListEl.innerHTML = "<li>No events for this day.</li>";
+        return;
+    }
+
+    eventListEl.innerHTML = list
+        .map(ev => `
+            <li data-id="${ev.id}">
+                <div class="event-item-text">
+                    <div class="event-item-title">${ev.title}</div>
+                    <div class="event-item-desc">${ev.description || ""}</div>
+                </div>
+                <button class="delete-event-btn">Delete</button>
+            </li>
+        `)
+        .join("");
+
+    // hook up delete buttons
+    eventListEl.querySelectorAll(".delete-event-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+            const li = e.target.closest("li");
+            const id = Number(li.dataset.id);
+            const list = events[selectedDate];
+            if (!list) return;
+
+            const idx = list.findIndex(ev => ev.id === id);
+            if (idx !== -1) {
+                list.splice(idx, 1);
+                if (!list.length) {
+                    delete events[selectedDate];
+                }
+            }
+            renderEventsForSelectedDate();
+        });
+    });
+}
+
+// 1) clicking a day selects it and shows its events
+daysTag.addEventListener("click", e => {
+    const target = e.target;
+    if (target.tagName !== "LI") return;
+    if (target.classList.contains("inactive")) return;
+
+    const dayNumber = Number(target.textContent);
+    if (!dayNumber) return;
+
+    selectedDate = formatDateKey(currYear, currMonth, dayNumber);
+
+    // visual highlight
+    document.querySelectorAll(".days li").forEach(li => {
+        li.classList.remove("selected");
+    });
+    target.classList.add("selected");
+
+    renderEventsForSelectedDate();
+});
+
+const eventDescriptionInput = document.getElementById("event-description");
+
+function addEvent() {
+    if (!selectedDate) {
+        alert("Please select a day in the calendar first.");
+        return;
+    }
+
+    const title = eventTitleInput.value.trim();
+    const description = eventDescriptionInput.value.trim();
+
+    if (!title) {
+        alert("Please enter an event title.");
+        return;
+    }
+
+    if (!events[selectedDate]) {
+        events[selectedDate] = [];
+    }
+
+    events[selectedDate].push({
+        id: Date.now(),
+        title: title,
+        description: description
+    });
+
+    eventTitleInput.value = "";
+    eventDescriptionInput.value = "";
+
+    renderEventsForSelectedDate();
+}
+addEventBtn.addEventListener("click", addEvent);

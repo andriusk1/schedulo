@@ -10,7 +10,7 @@ currMonth = date.getMonth();
 const eventTitleInput   = document.getElementById("event-title");
 const addEventBtn       = document.getElementById("add-event-btn");
 const eventListEl       = document.querySelector(".event-list");
-const eventDateLabelEl  = document.querySelector(".event-date-label");
+const eventDateLabelEl  = document.getElementById("selected-date-label");
 
 let selectedDate = null;
 const events = {};
@@ -23,15 +23,21 @@ function formatDateKey(year, monthIndex, day) {
 }
 
 function renderEventsForSelectedDate() {
-    if (!eventListEl || !eventDateLabelEl) return;
+    // we only really need the list element – label is optional
+    if (!eventListEl) return;
 
     if (!selectedDate) {
-        eventDateLabelEl.textContent = "No day selected";
-        eventListEl.innerHTML = "";
+        if (eventDateLabelEl) {
+            eventDateLabelEl.textContent = "No day selected";
+        }
+        eventListEl.innerHTML = "<li>No events for this day.</li>";
         return;
     }
 
-    eventDateLabelEl.textContent = `Events on ${selectedDate}`;
+    if (eventDateLabelEl) {
+        eventDateLabelEl.textContent = selectedDate;
+    }
+
     const list = events[selectedDate] || [];
 
     if (!list.length) {
@@ -40,8 +46,35 @@ function renderEventsForSelectedDate() {
     }
 
     eventListEl.innerHTML = list
-        .map((title, i) => `<li>${i + 1}. ${title}</li>`)
+        .map(ev => `
+            <li data-id="${ev.id}">
+                <div class="event-item-text">
+                    <div class="event-item-title">${ev.title}</div>
+                    <div class="event-item-desc">${ev.description || ""}</div>
+                </div>
+                <button class="delete-event-btn">Delete</button>
+            </li>
+        `)
         .join("");
+
+    // delete buttons
+    eventListEl.querySelectorAll(".delete-event-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+            const li = e.target.closest("li");
+            const id = Number(li.dataset.id);
+            const list = events[selectedDate];
+            if (!list) return;
+
+            const idx = list.findIndex(ev => ev.id === id);
+            if (idx !== -1) {
+                list.splice(idx, 1);
+                if (!list.length) {
+                    delete events[selectedDate];
+                }
+            }
+            renderEventsForSelectedDate();
+        });
+    });
 }
 
 // storing full name of all months in array
@@ -98,56 +131,6 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
 // unique id counter for events
 let eventIdCounter = 0;
 
-// override the old renderer to support description + delete
-function renderEventsForSelectedDate() {
-    if (!eventListEl || !eventDateLabelEl) return;
-
-    if (!selectedDate) {
-        eventDateLabelEl.textContent = "No day selected";
-        eventListEl.innerHTML = "";
-        return;
-    }
-
-    eventDateLabelEl.textContent = `Events on ${selectedDate}`;
-    const list = events[selectedDate] || [];
-
-    if (!list.length) {
-        eventListEl.innerHTML = "<li>No events for this day.</li>";
-        return;
-    }
-
-    eventListEl.innerHTML = list
-        .map(ev => `
-            <li data-id="${ev.id}">
-                <div class="event-item-text">
-                    <div class="event-item-title">${ev.title}</div>
-                    <div class="event-item-desc">${ev.description || ""}</div>
-                </div>
-                <button class="delete-event-btn">Delete</button>
-            </li>
-        `)
-        .join("");
-
-    // hook up delete buttons
-    eventListEl.querySelectorAll(".delete-event-btn").forEach(btn => {
-        btn.addEventListener("click", e => {
-            const li = e.target.closest("li");
-            const id = Number(li.dataset.id);
-            const list = events[selectedDate];
-            if (!list) return;
-
-            const idx = list.findIndex(ev => ev.id === id);
-            if (idx !== -1) {
-                list.splice(idx, 1);
-                if (!list.length) {
-                    delete events[selectedDate];
-                }
-            }
-            renderEventsForSelectedDate();
-        });
-    });
-}
-
 // 1) clicking a day selects it and shows its events
 daysTag.addEventListener("click", e => {
     const target = e.target;
@@ -199,4 +182,6 @@ function addEvent() {
 
     renderEventsForSelectedDate();
 }
+
 addEventBtn.addEventListener("click", addEvent);
+

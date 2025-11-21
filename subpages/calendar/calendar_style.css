@@ -59,6 +59,23 @@ header .current-date{
 .calendar{
   padding: 20px;
 }
+.calendar-layout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;          /* space between columns */
+  min-height: 100vh;
+}
+
+/* Left events column – style similar to your current panel */
+.day-events-panel {
+  background: #ffffff;
+  padding: 20px 22px;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+  min-width: 260px;
+  max-width: 300px;
+}
 .calendar ul{
   display: flex;
   flex-wrap: wrap;
@@ -91,7 +108,7 @@ header .current-date{
 .days li.selected {
   background: #2f8dfb;
   color: #fff;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 .days li.active{
   color: #fff;
@@ -113,6 +130,25 @@ header .current-date{
 .days li:not(.active):hover::before{
   background: #f2f2f2;
 }
+.days li {
+  position: relative;
+  /* …plus whatever styles you already had… */
+}
+
+/* little dot under days that have events */
+.days li.has-event::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;          /* tweak if needed */
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2f8dfb;  /* your blue */
+}
+
+
 button {
     background-color: rgb(57, 158, 240);
     text-align: center;

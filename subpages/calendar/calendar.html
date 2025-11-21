@@ -11,6 +11,20 @@
     <script src="calendar_script.js" defer></script>
   </head>
   <body>
+  <div class="calendar-layout">
+    <!-- LEFT: events for selected day -->
+    <div class="day-events-panel">
+      <div class="event-panel-header">
+        <h2>Events</h2>
+        <p class="event-panel-date" id="selected-date-label">2025-11-21</p>
+      </div>
+
+      <ul class="event-list" id="event-list">
+        <li class="event-list-empty">No events for this day.</li>
+      </ul>
+    </div>
+
+    <!-- MIDDLE: calendar (UNCHANGED) -->
     <div class="wrapper">
       <header>
         <p class="current-date"></p>
@@ -32,16 +46,9 @@
         <ul class="days"></ul>
       </div>
     </div>
+
+    <!-- RIGHT: add new event form only -->
     <div class="event-panel">
-      <div class="event-panel-header">
-        <h2>Events</h2>
-        <p class="event-panel-date" id="selected-date-label">2025-11-21</p>
-      </div>
-
-      <ul class="event-list" id="event-list">
-        <li class="event-list-empty">No events for this day.</li>
-      </ul>
-
       <form class="event-form" id="event-form">
         <h3 class="event-form-title">Add new event</h3>
 
@@ -56,16 +63,20 @@
         </div>
 
         <div class="event-form-group">
-          <label for="event-desc">Description</label>
+          <label for="event-description">Description</label>
           <textarea
-            id="event-desc"
+            id="event-description"
             rows="3"
             placeholder="Short description (optional)"
           ></textarea>
         </div>
 
-        <button type="button" id="add-event-btn" class="event-submit-btn">Save event</button>
+        <button type="button" id="add-event-btn" class="event-submit-btn">
+          Save event
+        </button>
       </form>
     </div>
+  </div>
+</body>
   </body>
 </html>

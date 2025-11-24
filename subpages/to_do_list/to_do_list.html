@@ -20,9 +20,7 @@
       <li><a href="../../index.html" class="nav-link"><span>Home</span></a></li>
       <li><a href="../to_do_list/to_do_list.html" class="nav-link"><span>To-do list</span></a></li>
       <li><a href="../study/study.html" class="nav-link"><span>Õppimine</span></a></li>
-      <li><a href="../Calculator/calculator.html" class="nav-link"><span>Calculator</span></a></li>
-      <a href="#" onclick="openPopup('../calendar/calendar.html')" class="nav-link"><span>Calendar</span></a>
-
+      <li><a href="#" onclick="openPopup('../calendar/calendar.html')" class="nav-link"><span>Calendar</span></a></li>
       <li><a href="../about_us/about_us.html" class="nav-link"><span>About us</span></a></li>
     </ul>
   </nav>
@@ -53,6 +51,16 @@
     © 2025 SCHEDULO. All rights reserved.
   </footer>
 
-  <script src="to_do_list.js"></script>
+<script>
+function openPopup(url) {
+  window.open(
+    url,
+    "popupWindow",
+    "width=420,height=600,resizable=yes,scrollbars=no,status=no"
+  );
+}
+</script>
+
+<script src="to_do_list.js"></script>
 </body>
 </html>

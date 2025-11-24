@@ -126,6 +126,23 @@
 .lineThrough {
   text-decoration: line-through;
 }
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+
 
 @media (max-width: 600px) {
   .study-wrapper {
@@ -146,16 +163,6 @@
   height: 100%;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-}
 
-main {
-  flex: 1; 
-}
 
-footer {
-  margin-top: auto; 
 
-}

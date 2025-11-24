@@ -6,8 +6,11 @@
   <title>SCHEDULO</title>
   <link rel="stylesheet" href="style.css">
 
+  <!-- Correct popup function -->
   <script>
-    function openPopup(url) {
+    function openPopup(relativePath) {
+      const base = window.location.pathname.replace(/index\.html$/, "");
+      const url = base + relativePath;
       window.open(
         url,
         "popupWindow",
@@ -15,18 +18,6 @@
       );
     }
   </script>
-  <script>
-  function openPopup(relativePath) {
-    const base = window.location.pathname.replace(/index\.html$/, "");
-    const url = base + relativePath;
-    window.open(
-      url,
-      "popupWindow",
-      "width=420,height=600,resizable=yes,scrollbars=no,status=no"
-    );
-  }
-</script>
-
 
 </head>
 <body>
@@ -42,7 +33,8 @@
       <li><a href="subpages/to_do_list/to_do_list.html" class="nav-link"><span>To-do list</span></a></li>
       <li><a href="subpages/study/study.html" class="nav-link"><span>Õppimine</span></a></li>
 
-      <li><a href="#" onclick="openPopup('/subpages/Calculator/popup_calculator.html')" class="nav-link"><span>Calculator</span></a></li>
+      <!-- FIXED — removed leading slash -->
+      <li><a href="#" onclick="openPopup('subpages/Calculator/popup_calculator.html')" class="nav-link"><span>Calculator</span></a></li>
       <li><a href="#" onclick="openPopup('subpages/calendar/calendar.html')" class="nav-link"><span>Calendar</span></a></li>
 
       <li><a href="subpages/about_us/about_us.html" class="nav-link"><span>About us</span></a></li>
@@ -67,12 +59,16 @@
           <p>Track your study goals and learning progress.</p>
         </div>
       </a>
+
+      <!-- FIXED -->
       <a href="#" onclick="openPopup('subpages/Calculator/popup_calculator.html')" class="card-link">
         <div class="card card-calculator">
           <h3>Smart tools</h3>
           <p>Use the calculator to boost productivity.</p>
         </div>
       </a>
+
+      <!-- FIXED -->
       <a href="#" onclick="openPopup('subpages/calendar/calendar.html')" class="card-link">
         <div class="card card-calendar">
           <h3>Stay on schedule</h3>

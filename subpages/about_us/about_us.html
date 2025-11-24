@@ -9,20 +9,44 @@
   <link rel="stylesheet" href="../../style.css">
   <!-- page styling -->
   <link rel="stylesheet" href="about_us.css">
+
+  <script>
+    function openPopup(url) {
+      window.open(
+        url,
+        "popupWindow",
+        "width=420,height=600,resizable=yes,scrollbars=no,status=no"
+      );
+    }
+  </script>
 </head>
 <body>
 
   <header>
     <h1>About Schedulo</h1>
-    <p>A small web project by first-year Computer Science students at the University of Tartu.</p>
+    <p>A small web project made by first-year Computer Science students at the University of Tartu.</p>
   </header>
 
   <nav>
     <ul class="nav-menu">
       <li><a href="../../index.html" class="nav-link"><span>Home</span></a></li>
       <li><a href="../to_do_list/to_do_list.html" class="nav-link"><span>To-do list</span></a></li>
-      <li><a href="../study/study.html" class="nav-link"><span>Study</span></a></li>
-      <li><a href="../Calculator/calculator.html" class="nav-link"><span>Calculator</span></a></li>
+      <li><a href="../study/study.html" class="nav-link"><span>Õppimine</span></a></li>
+
+      <!-- FIXED: Added calculator popup -->
+      <li>
+        <a href="#" onclick="openPopup('../Calculator/popup_calculator.html')" class="nav-link">
+          <span>Calculator</span>
+        </a>
+      </li>
+
+      <!-- FIXED: Added calendar popup -->
+      <li>
+        <a href="#" onclick="openPopup('../calendar/calendar.html')" class="nav-link">
+          <span>Calendar</span>
+        </a>
+      </li>
+
       <li><a href="../about_us/about_us.html" class="nav-link"><span>About us</span></a></li>
     </ul>
   </nav>
@@ -34,8 +58,8 @@
       <article class="about-card">
         <h2><span class="icon">💡</span> What is Schedulo?</h2>
         <p>
-          Schedulo is a simple web planner that combines a to-do list, study tools and a few small utilities
-          into one place. It is designed to stay lightweight and easy to use, especially for students.
+          Schedulo is a simple web planner that combines a to-do list, study tools and small utilities.
+          It is designed to stay lightweight and easy to use.
         </p>
       </article>
 
@@ -44,43 +68,27 @@
         <h2><span class="icon">🎯</span> Why we built it</h2>
         <p>
           This project was created for a web development course at the University of Tartu.
-          Our main goal is to practice real web development: writing HTML, CSS and JavaScript,
-          working with GitHub, and keeping our code readable so we can learn from it later.
+          Our goal was to practice real front-end development: HTML, CSS, JS and teamwork.
         </p>
       </article>
 
       <!-- tech -->
       <article class="about-card">
         <h2><span class="icon">🧰</span> Technologies</h2>
-        <p>Schedulo is built using core front-end technologies:</p>
         <ul class="bullet-list">
-          <li>HTML – structure of the pages</li>
-          <li>CSS – layout, colours and visual style</li>
-          <li>JavaScript – logic and interactivity</li>
+          <li>HTML – structure</li>
+          <li>CSS – layout & visual style</li>
+          <li>JavaScript – logic & interactivity</li>
         </ul>
       </article>
 
       <!-- team -->
       <section class="about-card">
         <h2><span class="icon">👥</span> Our team</h2>
-        <p>
-          We are first-year Computer Science students at the University of Tartu. Schedulo is one of the projects
-          where we experiment with front-end development and learn how to build and maintain a small web app together.
-        </p>
-
         <div class="team-grid">
-          <div class="member">
-            <div class="avatar">A</div>
-            <span class="name">Andrius Kriščiūnas</span>
-          </div>
-          <div class="member">
-            <div class="avatar">S</div>
-            <span class="name">Siim Ilison</span>
-          </div>
-          <div class="member">
-            <div class="avatar">A</div>
-            <span class="name">Arthur Berik</span>
-          </div>
+          <div class="member"><div class="avatar">A</div><span class="name">Andrius Kriščiūnas</span></div>
+          <div class="member"><div class="avatar">S</div><span class="name">Siim Ilison</span></div>
+          <div class="member"><div class="avatar">A</div><span class="name">Arthur Berik</span></div>
         </div>
       </section>
 
@@ -88,9 +96,7 @@
       <section class="about-card github-card">
         <div class="github-text">
           <h2><span class="icon">🔗</span> GitHub repository</h2>
-          <p>
-            All source code for Schedulo, including this page, is available on GitHub.
-          </p>
+          <p>You can find our project on GitHub.</p>
         </div>
         <a href="https://github.com/andriusk1/schedulo" target="_blank" class="github-button">
           View project on GitHub

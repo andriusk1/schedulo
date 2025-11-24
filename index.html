@@ -15,6 +15,18 @@
       );
     }
   </script>
+  <script>
+  function openPopup(relativePath) {
+    const base = window.location.pathname.replace(/index\.html$/, "");
+    const url = base + relativePath;
+    window.open(
+      url,
+      "popupWindow",
+      "width=420,height=600,resizable=yes,scrollbars=no,status=no"
+    );
+  }
+</script>
+
 
 </head>
 <body>

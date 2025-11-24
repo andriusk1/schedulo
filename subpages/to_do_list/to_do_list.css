@@ -1,4 +1,4 @@
-/* extra styling just for the to-do page */
+/* stiilid to-do lehe jaoks */
 
 .todo-wrapper {
   background: #ffffff;
@@ -10,6 +10,7 @@
   text-align: left;
 }
 
+/* kuupäeva rea paigutus */
 .todo-date-row {
   display: flex;
   gap: 10px;
@@ -35,6 +36,7 @@
   color: #555;
 }
 
+/* sisendi ja nupu rida */
 .todo-input-row {
   display: flex;
   gap: 10px;
@@ -55,6 +57,7 @@
   border-color: #007acc;
 }
 
+/* lisa-nupu stiil */
 #add-btn {
   background: #007acc;
   border: none;
@@ -70,12 +73,14 @@
   background: #005d99;
 }
 
+/* ülesannete nimekiri */
 #todo-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
+/* üksik to-do element */
 .todo-item {
   display: flex;
   align-items: center;
@@ -88,6 +93,7 @@
   gap: 12px;
 }
 
+/* vasak pool: checkbox + tekst */
 .todo-left {
   display: flex;
   align-items: center;
@@ -104,6 +110,7 @@
   color: #888;
 }
 
+/* kustutamise nupp */
 .delete-btn {
   background: transparent;
   border: none;
@@ -125,7 +132,7 @@
   color: #555;
 }
 
-/* mobile */
+/* mobiili paigutus */
 @media (max-width: 500px) {
   .todo-input-row {
     flex-direction: column;
@@ -150,10 +157,10 @@ html, body {
 }
 
 main {
-    flex: 1;   /* pushes footer to the bottom */
+    flex: 1;   /* surub footeri alla */
 }
 
-/* Optional: make footer centered and tidy */
+/* Footer tsentreeritud ja korrektselt */
 footer {
     text-align: center;
     padding: 15px 0;

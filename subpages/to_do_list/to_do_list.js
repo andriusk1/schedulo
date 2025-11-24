@@ -6,7 +6,7 @@ const humanDate = document.getElementById("human-date");
 
 const STORAGE_KEY = "schedulo-todo-by-date-v1";
 
-// tagasta tänane kuupäev kujul 2025-11-06
+// tagastame tänane kuupäev kujul 2025-11-06
 function getTodayISO() {
   const d = new Date();
   const y = d.getFullYear();
@@ -27,19 +27,19 @@ function toHumanDate(iso) {
   });
 }
 
-// loe kõik päevad localStoragest
+// loeme kõik päevad localStoragest
 function getAllFromStorage() {
   const raw = localStorage.getItem(STORAGE_KEY);
   if (!raw) return {};
   return JSON.parse(raw);
 }
 
-// kirjuta kõik päevad localStorage-sse
+// kirjutame kõik päevad localStorage-sse
 function saveAllToStorage(obj) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
 }
 
-// näita ühe päeva ülesandeid
+// näitame ühe päeva ülesandeid
 function showTasksFor(dateStr) {
   list.innerHTML = "";
   const all = getAllFromStorage();
@@ -60,7 +60,7 @@ function showTasksFor(dateStr) {
   humanDate.textContent = toHumanDate(dateStr);
 }
 
-// loo üks <li> ja pane see nimekirja
+// loome üks <li> ja pane see nimekirja
 function addTaskToDom(text, completed = false, save = true) {
   const li = document.createElement("li");
   li.className = "todo-item";
@@ -79,7 +79,7 @@ function addTaskToDom(text, completed = false, save = true) {
     span.classList.add("completed");
   }
 
-  // märgi lõpetatuks
+  // märgime lõpetatuks
   cb.addEventListener("change", () => {
     span.classList.toggle("completed", cb.checked);
     saveCurrentDate();
@@ -105,7 +105,7 @@ function addTaskToDom(text, completed = false, save = true) {
   }
 }
 
-// loe ekraanilt, mis ülesanded sellel kuupäeval on, ja salvesta
+// loeme ekraanilt, mis ülesanded sellel kuupäeval on, ja salvestame
 function saveCurrentDate() {
   const currentDate = dateInput.value || getTodayISO();
   const all = getAllFromStorage();
@@ -147,9 +147,11 @@ dateInput.addEventListener("change", () => {
   showTasksFor(dateInput.value);
 });
 
-// alglaadimisel pane tänane kuupäev ja näita selle ülesandeid
+// alglaadimisel paneme tänane kuupäev ja näitame selle ülesandeid
 document.addEventListener("DOMContentLoaded", () => {
   const today = getTodayISO();
   dateInput.value = today;
   showTasksFor(today);
 });
+
+// Allikas: https://dev.to/vladimirschneider/simple-to-do-list-using-localstorage-29on

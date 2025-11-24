@@ -6,50 +6,6 @@
   <link rel="stylesheet" href="calculator.css">
   <script src="calculator.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <style>
-    h1 {
-      text-align: center;
-      color: #007acc;
-      font-family: 'Segoe UI', sans-serif;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #f5f5f5;
-      font-family: Arial, sans-serif;
-    }
-
-    button {
-      background-color: rgb(57, 158, 240);
-      border: none;
-      color: white;
-      text-align: center;
-      font-size: 16px;
-      display: inline-block;
-      padding: 15px 32px;
-      cursor: pointer;
-      border-radius: 12px;
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);
-      transition: all 0.2s ease;
-    }
-
-    button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
-
-    .button-container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-    }
-  </style>
 </head>
 <body>
 
@@ -63,7 +19,7 @@
   <script>
     function openCalculatorWindow() {
       const calculatorWindow = window.open(
-        "popup_calculator.html", // путь к файлу с калькулятором
+        "popup_calculator.html",
         "Calculator",
         "width=400,height=550,resizable=yes,scrollbars=no,status=no"
       );

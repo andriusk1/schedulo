@@ -1,6 +1,4 @@
-// -----------------------
-// DOM ELEMENTS
-// -----------------------
+// defineerin DOM elemendid
 const daysTag               = document.querySelector(".days");
 const currentDate           = document.querySelector(".current-date");
 const prevNextIcon          = document.querySelectorAll(".icons span");
@@ -11,10 +9,8 @@ const addEventBtn           = document.getElementById("add-event-btn");
 const eventListEl           = document.querySelector(".event-list");
 const eventDateLabelEl      = document.getElementById("selected-date-label");
 
-// -----------------------
-// STATE
-// -----------------------
-let viewDate        = new Date();                    // what month we’re viewing
+// defineerin kalendri oleku
+let viewDate        = new Date();                    // kuvatav kuu/aasta
 let currYear        = viewDate.getFullYear();
 let currMonth       = viewDate.getMonth();           // 0–11
 let selectedDateKey = null;                          // "YYYY-MM-DD"
@@ -26,9 +22,7 @@ const months = [
   "July","August","September","October","November","December"
 ];
 
-// -----------------------
-// HELPERS
-// -----------------------
+// kuupäeva formaatimise funktsioon "YYYY-MM-DD"
 function formatDateKey(year, monthIndex, day) {
   const y = year;
   const m = String(monthIndex + 1).padStart(2, "0");
@@ -36,9 +30,7 @@ function formatDateKey(year, monthIndex, day) {
   return `${y}-${m}-${d}`;
 }
 
-// -----------------------
-// CALENDAR RENDERING
-// -----------------------
+// kalendri renderdamise funktsioon
 function renderCalendar() {
   const firstDayofMonth    = new Date(currYear, currMonth, 1).getDay();
   const lastDateofMonth    = new Date(currYear, currMonth + 1, 0).getDate();
@@ -48,12 +40,12 @@ function renderCalendar() {
   let liTag = "";
   const today = new Date();
 
-  // prev month tail
+  // eelneva kuu lõpp
   for (let i = firstDayofMonth; i > 0; i--) {
     liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
   }
 
-  // current month days
+  // hetke kuu päevad
   for (let i = 1; i <= lastDateofMonth; i++) {
     const thisKey = formatDateKey(currYear, currMonth, i);
 
@@ -72,7 +64,7 @@ function renderCalendar() {
     liTag += `<li class="${isToday} ${isSelected} ${hasEvent}">${i}</li>`;
   }
 
-  // next month head
+  // järgmise kuu algus
   for (let i = lastDayofMonth; i < 6; i++) {
     liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
   }
@@ -83,7 +75,7 @@ function renderCalendar() {
 
 renderCalendar();
 
-// prev / next arrows
+// eelineva ja järgmise kuu nupuvajutused
 prevNextIcon.forEach(icon => {
   icon.addEventListener("click", () => {
     if (icon.id === "prev") {
@@ -102,9 +94,7 @@ prevNextIcon.forEach(icon => {
   });
 });
 
-// -----------------------
-// EVENT LIST RENDERING
-// -----------------------
+// kuupäeva sündmuste renderdamise funktsioon
 function renderEventsForSelectedDate() {
   if (!eventListEl) return;
 
@@ -135,7 +125,7 @@ function renderEventsForSelectedDate() {
     `)
     .join("");
 
-  // delete handlers
+  // kustutamisnuppude sündmuse kuulajad
   eventListEl.querySelectorAll(".delete-event-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       const li  = e.target.closest("li");
@@ -150,14 +140,12 @@ function renderEventsForSelectedDate() {
       }
 
       renderEventsForSelectedDate();
-      renderCalendar();         // update dots on the calendar
+      renderCalendar();
     });
   });
 }
 
-// -----------------------
-// DAY CLICK
-// -----------------------
+// kalendri päevade klikkimise sündmus
 daysTag.addEventListener("click", e => {
   const target = e.target;
   if (target.tagName !== "LI") return;
@@ -168,13 +156,11 @@ daysTag.addEventListener("click", e => {
 
   selectedDateKey = formatDateKey(currYear, currMonth, dayNumber);
 
-  renderCalendar();             // to reapply selected + has-event classes
+  renderCalendar();
   renderEventsForSelectedDate();
 });
 
-// -----------------------
-// ADD EVENT
-// -----------------------
+// sündmuse lisamise funktsioon
 function addEvent() {
   if (!selectedDateKey) {
     alert("Please select a day in the calendar first.");
@@ -203,9 +189,10 @@ function addEvent() {
   eventDescriptionInput.value = "";
 
   renderEventsForSelectedDate();
-  renderCalendar();             // show dot on that day
+  renderCalendar();             // värskenda kalendrit, et näidata sündmuse olemasolu
 }
 
+// sündmuse lisamise nupu klikkimise sündmus
 if (addEventBtn) {
   addEventBtn.addEventListener("click", addEvent);
 }

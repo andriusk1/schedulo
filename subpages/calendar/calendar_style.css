@@ -1,6 +1,4 @@
-/* Calendar CSS Source: https://www.codingnepalweb.com/dynamic-calendar-html-css-javascript/ */
 
-/* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 *{
   margin: 0;
@@ -63,11 +61,9 @@ header .current-date{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;          /* space between columns */
+  gap: 2.5rem;
   min-height: 100vh;
 }
-
-/* Left events column – style similar to your current panel */
 .day-events-panel {
   background: #ffffff;
   padding: 20px 22px;
@@ -132,20 +128,18 @@ header .current-date{
 }
 .days li {
   position: relative;
-  /* …plus whatever styles you already had… */
 }
 
-/* little dot under days that have events */
 .days li.has-event::after {
   content: "";
   position: absolute;
   left: 50%;
-  bottom: 6px;          /* tweak if needed */
+  bottom: 6px;
   transform: translateX(-50%);
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #2f8dfb;  /* your blue */
+  background: #2f8dfb;
 }
 
 
@@ -158,14 +152,12 @@ button {
     border-radius: 12px;
     user-select: none;
 }
-/* Layout: calendar left, events right */
 .calendar-layout {
   display: flex;
   gap: 3rem;
   align-items: flex-start;
 }
 
-/* Right-hand card */
 .event-panel {
   background: #ffffff;
   padding: 24px 26px;
@@ -177,7 +169,6 @@ button {
     "Segoe UI", sans-serif;
 }
 
-/* Header */
 .event-panel-header {
   display: flex;
   flex-direction: column;
@@ -195,7 +186,6 @@ button {
   color: #6f7a89;
 }
 
-/* Event list */
 .event-list {
   list-style: none;
   padding: 0;
@@ -216,7 +206,6 @@ button {
   padding-left: 0;
 }
 
-/* Form */
 .event-form {
   border-top: 1px solid #e4e7f0;
   padding-top: 16px;
@@ -256,7 +245,6 @@ button {
   box-shadow: 0 0 0 2px rgba(47, 141, 251, 0.15);
 }
 
-/* Button */
 .event-submit-btn {
   width: 100%;
   border: none;
@@ -278,7 +266,6 @@ button {
   transform: translateY(-1px);
 }
 
-/* Mobile: stack under calendar */
 @media (max-width: 900px) {
   .calendar-layout {
     flex-direction: column;

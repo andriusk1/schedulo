@@ -1,12 +1,15 @@
+// muutujate defineerimine
 let currentInput = '';
 let operator = '';
 let previousInput = '';
 
+// numbri vajutamise funktsioon
 function appendNumber(num) {
   currentInput += num;
   updateDisplay();
 }
 
+// Tehte seadistamise funktsioon
 function setOperation(op) {
   if (currentInput === '') return;
   if (previousInput !== '') calculate();
@@ -15,6 +18,7 @@ function setOperation(op) {
   currentInput = '';
 }
 
+// arvutamise funktsioon
 function calculate() {
   let result;
   const prev = parseFloat(previousInput);
@@ -44,6 +48,7 @@ function calculate() {
   updateDisplay();
 }
 
+// lahtri tühjendamise funktsioon
 function clearDisplay() {
   currentInput = '';
   previousInput = '';
@@ -51,6 +56,7 @@ function clearDisplay() {
   updateDisplay();
 }
 
+// lahtri värskendamise funktsioon
 function updateDisplay() {
   document.getElementById('display').innerText = currentInput || '0';
 }

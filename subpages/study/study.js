@@ -1,8 +1,10 @@
+// muutujate defineerimine
 const Container = document.getElementById("container");
 let selectedText = "";
 let rangeAT = "";
 let noteData = JSON.parse(localStorage.getItem("noteData")) || [];
 
+// uue märkme loomise funktsioon
 function CreateNewNote(e) {
   let div = document.createElement("div");
   div.classList.add("note-row");
@@ -31,6 +33,7 @@ function CreateNewNote(e) {
     Container.appendChild(div);
   }
 
+  // Enter-klahvi käsitlemine märkme sees
   const noteEditor = document.querySelectorAll(".note-editor");
   noteEditor.forEach((el) =>
     el.addEventListener("keypress", (e) => {
@@ -43,13 +46,7 @@ function CreateNewNote(e) {
   SaveNoteData();
 }
 
-document.addEventListener('keydown', e => {
-    if (e.ctrlKey && e.key === 's') {
-        e.preventDefault();
-        SaveNoteData();
-    }
-});
-
+// märkmete salvestamise funktsioon
 function SaveNoteData() {
   noteData = [];
   const noteEditor = document.querySelectorAll(".note-editor");
@@ -57,7 +54,7 @@ function SaveNoteData() {
   noteEditor.forEach((el) => {
     const html = el.innerHTML.trim();
 
-    // don’t save placeholder-only notes
+    // salvesta ainult siis kui märkmel on sisu
     if (html && html !== "Click to start typing...") {
       noteData.push({ value: html });
     }
@@ -66,11 +63,13 @@ function SaveNoteData() {
   localStorage.setItem("noteData", JSON.stringify(noteData));
 }
 
+// valitud teksti funktsioon
 function getSelectedText() {
   selectedText = window.getSelection().toString();
   rangeAT = window.getSelection().getRangeAt(0);
 }
 
+// valitud tekstile stiili rakendamise funktsioon
 function getSelected(style) {
   if (selectedText) {
     let div = document.createElement("span");
@@ -81,6 +80,7 @@ function getSelected(style) {
   }
 }
 
+// märkme kustutamise funktsioon
 function DeleteNote(e) {
   let conform = confirm("Are you sure! Do you want to Delete?");
   if (conform) {
@@ -90,7 +90,7 @@ function DeleteNote(e) {
 }
 
 
-// Re-load notes from localStorage
+// märkmete lugemise funktsioon
 function readData() {
   const raw = localStorage.getItem("noteData");
   if (!raw) return;
@@ -106,33 +106,34 @@ function readData() {
   });
 }
 
-// Call readData AFTER functions are defined
+// lehe laadimisel märkmete lugemine
 window.addEventListener("DOMContentLoaded", readData);
 
-// Optional: button to add a completely empty new note
+// uue märkme lisamise funktsioon
 function AddNote() {
   CreateNewNote("");
 }
 
+// kõigi märkmete kustutamise funktsioon
 function DeleteAllNotes() {
   let ok = confirm("Delete ALL notes? This cannot be undone.");
   if (!ok) return;
 
-  // Remove all visual notes
   document.querySelectorAll(".note-row").forEach(n => n.remove());
 
-  // Clear localStorage data
   localStorage.removeItem("noteData");
 
-  // Reset in-memory array
   noteData = [];
 }
+
+// märkme kohatäite eemaldamise funktsioon
 function clearPlaceholder(el) {
   if (el.innerHTML.trim() === "Click to start typing...") {
     el.innerHTML = "";
   }
 }
 
+// märkme kohatäite taastamise funktsioon
 function restorePlaceholder(el) {
   if (el.innerHTML.trim() === "") {
     el.innerHTML = "Click to start typing...";

@@ -1,15 +1,51 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Notes</title>
-    <link rel="stylesheet" href="study.css" />
-    <script defer src="study.js"></script>
-  </head>
-  <body>
-    <h1>Notes</h1>
-    <button onclick="AddNote()">Add Note</button>
-    <button onclick="SaveNoteData()">Save All Notes</button>
-    <button onclick="DeleteAllNotes()">Delete All Notes</button>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCHEDULO – Study Notes</title>
+
+  <!-- MAIN GLOBAL STYLES -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- PAGE SPECIFIC STYLES -->
+  <link rel="stylesheet" href="study.css">
+
+  <script defer src="study.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h1>Notes</h1>
+  <p>Create and organize your study notes.</p>
+</header>
+
+<nav>
+  <ul class="nav-menu">
+    <li><a href="../../index.html" class="nav-link"><span>Home</span></a></li>
+    <li><a href="../to_do_list/to_do_list.html" class="nav-link"><span>To-do list</span></a></li>
+    <li><a href="../study/study.html" class="nav-link"><span>Study</span></a></li>
+    <li><a href="../Calculator/popup_calculator.html" class="nav-link"><span>Calculator</span></a></li>
+    <li><a href="../about_us/about_us.html" class="nav-link"><span>About us</span></a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="study-container">
+    <div class="button-row">
+      <button onclick="AddNote()">Add Note</button>
+      <button onclick="SaveNoteData()">Save All Notes</button>
+      <button onclick="DeleteAllNotes()">Delete All Notes</button>
+    </div>
+
     <div id="container"></div>
-  </body>
+  </div>
+</main>
+
+<footer>
+  © 2025 SCHEDULO. All rights reserved.
+</footer>
+
+</body>
 </html>

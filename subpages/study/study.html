@@ -9,6 +9,19 @@
   <link rel="stylesheet" href="study.css">
 
   <script defer src="study.js"></script>
+
+  <!-- UNIVERSAL POPUP FUNCTION -->
+  <script>
+    function openPopup(relativePath) {
+      // always open from root (/) to avoid broken paths
+      const url = relativePath;
+      window.open(
+        url,
+        "popupWindow",
+        "width=420,height=600,resizable=yes,scrollbars=no,status=no"
+      );
+    }
+  </script>
 </head>
 <body>
 
@@ -19,11 +32,25 @@
 
   <nav>
     <ul class="nav-menu">
-      <li><a href="../../index.html" class="nav-link"><span>Home</span></a></li>
-      <li><a href="../to_do_list/to_do_list.html" class="nav-link"><span>To-do list</span></a></li>
-      <li><a href="../study/study.html" class="nav-link"><span>Õppimine</span></a></li>
-      <li><a href="../Calculator/popup_calculator.html" class="nav-link"><span>Calculator</span></a></li>
-      <li><a href="../about_us/about_us.html" class="nav-link"><span>About us</span></a></li>
+      <li><a href="/index.html" class="nav-link"><span>Home</span></a></li>
+      <li><a href="/subpages/to_do_list/to_do_list.html" class="nav-link"><span>To-do list</span></a></li>
+      <li><a href="/subpages/study/study.html" class="nav-link"><span>Õppimine</span></a></li>
+
+      <!-- FIXED: now calculator always opens popup -->
+      <li>
+        <a href="#" onclick="openPopup('/subpages/Calculator/popup_calculator.html')" class="nav-link">
+          <span>Calculator</span>
+        </a>
+      </li>
+
+      <!-- if you want calendar popup too, add this -->
+      <li>
+        <a href="#" onclick="openPopup('/subpages/calendar/calendar.html')" class="nav-link">
+          <span>Calendar</span>
+        </a>
+      </li>
+
+      <li><a href="/subpages/about_us/about_us.html" class="nav-link"><span>About us</span></a></li>
     </ul>
   </nav>
 

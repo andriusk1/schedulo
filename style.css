@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SCHEDULO</title>
-
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -40,6 +38,66 @@
         header p {
             margin-top: 10px;
             font-size: 1.1em;
+        }
+
+        nav {
+            background-color: #007acc;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-menu li {
+            margin: 5px 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 12px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: #e6f2ff;
+            transition: width 0.3s ease;
+            z-index: 0;
+            border-radius: 10px;
+        }
+
+        .nav-link:hover::before {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: #007acc;
+        }
+
+        .nav-link span {
+            position: relative;
+            z-index: 1;
         }
 
         main {
@@ -141,6 +199,10 @@
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.8em;
+            }
+
+            .nav-menu {
+                flex-direction: column;
             }
 
             .card {

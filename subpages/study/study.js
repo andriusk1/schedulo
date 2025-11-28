@@ -139,3 +139,5 @@ function restorePlaceholder(el) {
     el.innerHTML = "Click to start typing...";
   }
 }
+
+// Allikas: https://dev.to/sharathchandark/how-to-create-sticky-note-app-in-html-css-javascript-mini-text-editor-111i

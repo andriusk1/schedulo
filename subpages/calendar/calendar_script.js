@@ -196,3 +196,5 @@ function addEvent() {
 if (addEventBtn) {
   addEventBtn.addEventListener("click", addEvent);
 }
+
+// Allikas: https://dev.to/wizdomtek/creating-a-dynamic-calendar-using-html-css-and-javascript-29m

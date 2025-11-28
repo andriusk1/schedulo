@@ -60,3 +60,5 @@ function clearDisplay() {
 function updateDisplay() {
   document.getElementById('display').innerText = currentInput || '0';
 }
+
+// Allikas: https://www.geeksforgeeks.org/javascript/javascript-calculator/

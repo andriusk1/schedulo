@@ -32,7 +32,7 @@ header .icons{
 }
 header .icons span{
   height: 40px;
-  width: flex;
+  width: 40px;
   margin: 0 1px;
   cursor: pointer;
   color: #878787;

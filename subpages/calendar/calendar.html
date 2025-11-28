@@ -4,12 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SCHEDULO – Calendar</title>
-
   <link rel="stylesheet" href="calendar_style.css">
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded">
   <script src="calendar_script.js" defer></script>
-
   <script>
     function openPopup(url) {
       window.open(
@@ -20,9 +17,7 @@
     }
   </script>
 </head>
-
 <body>
-
   <div class="calendar-layout">
     <div class="day-events-panel">
       <div class="event-panel-header">
@@ -34,7 +29,6 @@
         <li class="event-list-empty">No events for this day.</li>
       </ul>
     </div>
-
     <div class="wrapper">
       <header>
         <p class="current-date"></p>
@@ -43,7 +37,6 @@
           <span id="next" class="material-symbols-rounded">chevron_right</span>
         </div>
       </header>
-
       <div class="calendar">
         <ul class="weeks">
           <li>Sun</li>
@@ -57,25 +50,20 @@
         <ul class="days"></ul>
       </div>
     </div>
-
     <div class="event-panel">
       <form class="event-form" id="event-form">
         <h3 class="event-form-title">Add new event</h3>
-
         <div class="event-form-group">
           <label for="event-title">Title</label>
           <input type="text" id="event-title" placeholder="Event title" autocomplete="off">
         </div>
-
         <div class="event-form-group">
           <label for="event-description">Description</label>
           <textarea id="event-description" rows="3" placeholder="Short description (optional)"></textarea>
         </div>
-
         <button type="button" id="add-event-btn" class="event-submit-btn">Save event</button>
       </form>
     </div>
   </div>
-
 </body>
 </html>
